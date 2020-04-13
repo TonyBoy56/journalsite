@@ -13,5 +13,6 @@ $(document).ready(function () {
     journalEntry.entry = $('#entry-input').val();
     journalEntry.formatEntry();
     journalEntry.getTeaser();
+    $("#entries").html(journalEntry.teaserFinal).val();
   });
 });

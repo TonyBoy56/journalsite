@@ -3,11 +3,12 @@ export function Journal() {
   this.title = "";
   this.entry = "";
   this.teaser = "";
+  this.teaserFinal = "";
 }
 
 Journal.prototype.formatEntry = function () {
   var vowelsArray = ['a', 'e', 'i', 'o', 'u'];
-  var entryArray = this.entry.toLowerCase().split("")
+  var entryArray = this.entry.toLowerCase().split("");
   var vowelsCount = 0;
   var consonantCount = 0;
   var letters = /^[a-z]+$/;
@@ -28,13 +29,17 @@ Journal.prototype.getTeaser = function () {
   var entryArr = this.entry.split(" ");
   var teaserArr = [];
   for (var i = 0; i < 8; i++) {
+    console.log(entryArr[i]);
     teaserArr.push(entryArr[i]);
     if (entryArr[i].endsWith(".") || entryArr[i].endsWith("?") || entryArr[i].endsWith("!")) {
       break;
     }
-    var teaserFinal = teaserArr.join(" ");
-    $("#entries").html(teaserFinal);
   }
+  this.teaserFinal = teaserArr.join(" ");
+
+  console.log(this.teaserFinal);
+  console.log(teaserArr);
+  //  $("#entries").html(teaserFinal);
 };
 
 Journal.prototype.printEntry = function () {
