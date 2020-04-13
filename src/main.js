@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { Journal } from './journal'
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
@@ -6,9 +7,10 @@ import './styles.css';
 $(document).ready(function () {
   $('#journal-form').submit(function (event) {
     event.preventDefault();
-    var name = $('#name-input').val();
-    var title = $('#title-input').val();
-    var entry = $('#entry-input').val();
-    $('#entries').append(name + title + entry);
+    var journalEntry = new Journal();
+    journalEntry.author = $('#name-input').val();
+    journalEntry.title = $('#title-input').val();
+    journalEntry.entry = $('#entry-input').val();
+
   });
 });
