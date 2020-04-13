@@ -11,6 +11,7 @@ $(document).ready(function () {
     journalEntry.author = $('#name-input').val();
     journalEntry.title = $('#title-input').val();
     journalEntry.entry = $('#entry-input').val();
-
+    journalEntry.formatEntry();
+    journalEntry.getTeaser();
   });
 });
